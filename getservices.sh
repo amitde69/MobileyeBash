@@ -4,8 +4,8 @@
 # FUNCTION TO GET ADDRESS FROM API
 getservice(){
 	serviceips=$(curl -s $catalog'service/'$service | jq '' | grep '"Address"' | awk '{print $2}' | tr --delete '",')
-        echo $'\n'${service^^}
-	echo $serviceips$'\n' 
+        echo $'\n''Service Name:' ${service^^}
+	echo 'Service Addresses:' $serviceips$'\n' 
 }
 
 
