@@ -9,6 +9,6 @@
 
 1. Start the script by running: 
     ```
-    ./getservices.sh <SERVICE_URL>
+    bash getservices.sh <SERVICE_URL>
     ```
     if you don't provide a SERVICE_URL, the default http://demo.consul.io/catalog/v1/ URL will be used.
