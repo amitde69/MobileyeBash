@@ -19,12 +19,17 @@ else
 fi
 
 # CONSUL URL
-catalog="http://demo.consul.io/v1/catalog/"
+if [[ ${#1} > 0 ]]; then
+	catalog=$1	
+else
+	catalog='http://demo.consul.io/v1/catalog/'
+fi
 
 # GET SERVICE NAMES
 services=$(curl -s $catalog'services' | jq 'keys | .[]' | sed 's/"//g')
 
+# PRINT SERVICES AND ADDRESSES
 for service in $services; do
-	getservice &
+	getservice
 done
 
