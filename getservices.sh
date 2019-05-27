@@ -3,7 +3,7 @@
 
 # FUNCTION TO GET ADDRESS FROM API
 getservice(){
-	serviceips=$(curl -s $catalog'service/'$service | jq '' | grep '"Address"' | awk '{print $2}' | tr --delete '",')
+	serviceips=$(curl -s $catalog'service/'$service 2>/dev/null | jq -r '.[].Address')
         echo $'\n''Service Name:' ${service^^}
 	echo 'Service Addresses:' $serviceips$'\n' 
 }
@@ -15,7 +15,7 @@ installed=$(dpkg -s jq | grep -o 'installed')
 if [[ $installed == 'installed' ]]; then
 	echo 'jq exists!!'$'\n'
 else
-	sudo apt install jq
+	sudo apt install jq -y
 fi
 
 # CONSUL URL
