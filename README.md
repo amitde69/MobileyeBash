@@ -11,4 +11,4 @@
     ```
     bash getservices.sh <SERVICE_URL>
     ```
-    if you don't provide a SERVICE_URL, the default http://demo.consul.io/catalog/v1/ URL will be used.
+    if you don't provide a SERVICE_URL, the default http://demo.consul.io/v1/catalog/ URL will be used.
